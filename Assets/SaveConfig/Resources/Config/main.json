@@ -1,0 +1,24 @@
+
+{
+    "datas":[
+        {
+            "id":2,
+            "game_name":"ss",
+            "game_company":"ggk",
+            "version":2,
+            "other":"sssk"
+        },
+        {
+            "id":2,
+            "game_name":"ss",
+            "game_company":"ggk",
+            "version":2,
+            "other":"sssk"
+        }
+    ],
+    "dic":{
+        "aa":"aa33",
+        "bb":"bb22",
+        "cc":"cc11"
+    }
+}
