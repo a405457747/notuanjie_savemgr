@@ -44,20 +44,24 @@ namespace SaveConfig
         {
             get
             {
+                /*
                 if (inst == null)
                 {
                     var go = new GameObject("SaveConfig");
                     var s =go.AddComponent<SaveConfig>();
                     inst = s;
-                    //print("ÊµÀýÓÐÁË");
+                    //print("Êµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
                 }
-
+                */
                 return inst;
             }
         }
 
         private void Awake()
         {
+            if(inst == null){
+                inst=this;
+            }
             DontDestroyOnLoad(this.gameObject);
         }
 
