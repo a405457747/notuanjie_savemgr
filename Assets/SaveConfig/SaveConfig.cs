@@ -12,8 +12,6 @@ namespace SaveConfig
     {
         public List<JsonMapObj> datas;
 
-        //public Dictionary<string, string> dic;
-
         public JsonMapDic dic;
     }
 
@@ -36,6 +34,7 @@ namespace SaveConfig
     }
 
 
+    [DefaultExecutionOrder(-1)]
     public class SaveConfig : MonoBehaviour
     {
         private static SaveConfig inst = null;
@@ -50,7 +49,6 @@ namespace SaveConfig
                     var go = new GameObject("SaveConfig");
                     var s =go.AddComponent<SaveConfig>();
                     inst = s;
-                    //print("ʵ������");
                 }
                 */
                 return inst;
@@ -59,43 +57,19 @@ namespace SaveConfig
 
         private void Awake()
         {
-            if(inst == null){
-                inst=this;
-            }
-            DontDestroyOnLoad(this.gameObject);
-        }
-
-        public    void test()
-        {
-            print("i am test");
-            /*
-            var txt = Resources.Load<TextAsset>("Config/main");
-            JsonMap j = JsonUtility.FromJson<JsonMap>(txt.text);
-            print(j);
-
-            foreach (var item in j.datas)
+            if (inst == null)
             {
-                print($"{item.id} {item.game_company} {item.game_name} {item.version} {item.other}");
+                inst = this;
             }
-            print(j.dic.aa);
-            print(j.dic.bb);
-            print(j.dic.cc);
-            */
         }
 
-       public T LoadJson<T>(string jsonPath) where T:class
+        public void test()
         {
-            var txt = Resources.Load<TextAsset>(jsonPath);
-            T res = JsonUtility.FromJson<T>(txt.text);
-
-            return res;
+            print("i am saveconfig test");
         }
 
 
-
-
-
-       private  string GetFileName<T>()
+        private string GetFileName<T>()
         {
             return typeof(T).Name + ".txt";
         }
@@ -123,7 +97,7 @@ namespace SaveConfig
             }
         }
 
-        internal void SaveData<T>(T saveObj)
+        public void SaveData<T>(T saveObj)
         {
             var tName = GetFileName<T>();
             var jsonStr = JsonUtility.ToJson(saveObj, true);  //JsonMapper.ToJson(saveObj);
