@@ -8,8 +8,11 @@ namespace SaveConfig
     {
         void Start()
         {
-            SaveConfig.Inst.test();
-
+            //SaveConfig.Inst.test();
+            var a = 3;
+            a = a + 1;
+            a = a + 2;
+            print("a" + a);
         }
 
     }
